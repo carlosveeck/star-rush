@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cku5cw4qv7ueb"
-path="res://.godot/imported/pixil-frame-0.png-e02b86b3546b3c241e2679e4401ce252.ctex"
+uid="uid://x7m87f5ycqo"
+path="res://.godot/imported/New Piskel (2).png-859220eb16c270df19ce1482b8840040.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemaps/Sprites/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-e02b86b3546b3c241e2679e4401ce252.ctex"]
+source_file="res://Tilemaps/Sprites/New Piskel (2).png"
+dest_files=["res://.godot/imported/New Piskel (2).png-859220eb16c270df19ce1482b8840040.ctex"]
 
 [params]
 

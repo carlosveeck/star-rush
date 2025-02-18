@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c16wj6duumgtj"]
+
+[ext_resource type="Texture2D" uid="uid://x7m87f5ycqo" path="res://Tilemaps/Sprites/New Piskel (2).png" id="1_1c4fd"]
+[ext_resource type="Script" path="res://tile.gd" id="2_042d2"]
+
+[node name="tile" type="Sprite2D"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_1c4fd")
+script = ExtResource("2_042d2")
