@@ -31,7 +31,9 @@ func _ready() -> void:
 			var color:int = randi_range(0, tileColors.size() - 1)
 			tile.color = color
 			tile.modulate = tileColors[color]
+			if color == chosenColorRound:
+				tile.kill = true
 
 
 func _on_timer_timeout() -> void:
-	print_debug("timer_timeout") # Replace with function body.
+	pass  # Replace with function body.
