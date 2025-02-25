@@ -1,24 +1,24 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1740437874
-chosen_color.gd::GDScript::-1::1739897200::0::1::::ChosenColor<>Sprite2D<>::
-chosen_color.tscn::PackedScene::2706379438225886741::1740060249::0::1::::<><>::uid://x7m87f5ycqo::::res://Tilemaps/Sprites/New Piskel (2).png<>res://chosen_color.gd
-icon.svg::CompressedTexture2D::3986134554285325618::1739897200::1739897255::1::::<><>::
-main.gd::GDScript::-1::1740060476::0::1::::<>Node2D<>::
-node_2d.tscn::PackedScene::1093263516071758793::1740060476::0::1::::<><>::uid://orlef60vd3v::::res://Player/player.tscn<>res://main.gd<>uid://c16wj6duumgtj::::res://tile.tscn<>uid://bes8w6ctcyxhl::::res://chosen_color.tscn
-tile.gd::GDScript::-1::1740060356::0::1::::Tile<>Sprite2D<>::
-tile.tscn::PackedScene::6663100492131085575::1740060249::0::1::::<><>::uid://x7m87f5ycqo::::res://Tilemaps/Sprites/New Piskel (2).png<>res://tile.gd
-tile_check.gd::GDScript::-1::1740060053::0::1::::<>Area2D<>::
-::res://Player/::1740060249
-player.tscn::PackedScene::29953340426979633::1740060249::0::1::::<><>::res://Player/Scripts/player.gd<>uid://chh7soe6i16ly::::res://Player/Sprites/ExamplePlayerSprite.png<>res://Player/Scripts/player_state_machine.gd<>res://Player/Scripts/state_idle.gd<>res://Player/Scripts/state_walk.gd
-::res://Player/Scripts/::1739897200
-player.gd::GDScript::-1::1739897200::0::1::::Player<>CharacterBody2D<>::
-player_state_machine.gd::GDScript::-1::1739897200::0::1::::PlayerStateMachine<>Node<>::
-state.gd::GDScript::-1::1739897200::0::1::::State<>Node<>::
-state_idle.gd::GDScript::-1::1739897200::0::1::::State_Idle<>State<>::
-state_walk.gd::GDScript::-1::1739897200::0::1::::State_Walk<>State<>::
-::res://Player/Sprites/::1739897255
-Char_001.png::CompressedTexture2D::2282273331836162934::1739897200::1739897255::1::::<><>::
-ExamplePlayerSprite.png::CompressedTexture2D::5280589748116028858::1739897200::1739897255::1::::<><>::
-::res://Tilemaps/::1739897200
-::res://Tilemaps/Sprites/::1739897255
-New Piskel (2).png::CompressedTexture2D::49446844611269878::1739897200::1739897255::1::::<><>::
+::res://::1740438808
+chosen_color.gd::GDScript::-1::1740438777::0::1::::ChosenColor<>Sprite2D<>::
+chosen_color.tscn::PackedScene::2706379438225886741::1740438777::0::1::::<><>::uid://x7m87f5ycqo::::res://Tilemaps/Sprites/New Piskel (2).png<>res://chosen_color.gd
+icon.svg::CompressedTexture2D::3986134554285325618::1740438777::1740438809::1::::<><>::
+main.gd::GDScript::-1::1740438777::0::1::::<>Node2D<>::
+node_2d.tscn::PackedScene::1093263516071758793::1740438777::0::1::::<><>::uid://orlef60vd3v::::res://Player/player.tscn<>res://main.gd<>uid://c16wj6duumgtj::::res://tile.tscn<>uid://bes8w6ctcyxhl::::res://chosen_color.tscn
+tile.gd::GDScript::-1::1740438777::0::1::::Tile<>Sprite2D<>::
+tile.tscn::PackedScene::6663100492131085575::1740438777::0::1::::<><>::uid://x7m87f5ycqo::::res://Tilemaps/Sprites/New Piskel (2).png<>res://tile.gd
+tile_check.gd::GDScript::-1::1740438777::0::1::::<>Area2D<>::
+::res://Player/::1740438777
+player.tscn::PackedScene::29953340426979633::1740438777::0::1::::<><>::res://Player/Scripts/player.gd<>uid://chh7soe6i16ly::::res://Player/Sprites/ExamplePlayerSprite.png<>res://Player/Scripts/player_state_machine.gd<>res://Player/Scripts/state_idle.gd<>res://Player/Scripts/state_walk.gd
+::res://Player/Scripts/::1740438777
+player.gd::GDScript::-1::1740438777::0::1::::Player<>CharacterBody2D<>::
+player_state_machine.gd::GDScript::-1::1740438777::0::1::::PlayerStateMachine<>Node<>::
+state.gd::GDScript::-1::1740438777::0::1::::State<>Node<>::
+state_idle.gd::GDScript::-1::1740438777::0::1::::State_Idle<>State<>::
+state_walk.gd::GDScript::-1::1740438777::0::1::::State_Walk<>State<>::
+::res://Player/Sprites/::1740438777
+Char_001.png::CompressedTexture2D::2282273331836162934::1740438777::1740438809::1::::<><>::
+ExamplePlayerSprite.png::CompressedTexture2D::5280589748116028858::1740438777::1740438809::1::::<><>::
+::res://Tilemaps/::1740438777
+::res://Tilemaps/Sprites/::1740438777
+New Piskel (2).png::CompressedTexture2D::49446844611269878::1740438777::1740438809::1::::<><>::

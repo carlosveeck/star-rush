@@ -7,10 +7,8 @@ extends Node2D
 @export var chosenPreFab : PackedScene
 @export var boardSide : int = 8
 
-
 @onready var board: Node2D = $board
 @onready var hud: Node2D = $HUD
-
 
 
 func _process(delta: float) -> void:
@@ -18,9 +16,11 @@ func _process(delta: float) -> void:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GlobalColor.global_color_array = tileColors
 	var chosenColor:ChosenColor = chosenPreFab.instantiate()
 	hud.add_child(chosenColor)
 	var chosenColorRound:int = randi_range(0, tileColors.size() - 1)
+	GlobalColor.chosen_color = chosenColorRound
 	chosenColor.color = chosenColorRound
 	chosenColor.modulate = tileColors[chosenColorRound]
 	for i in boardSide:
@@ -31,9 +31,9 @@ func _ready() -> void:
 			var color:int = randi_range(0, tileColors.size() - 1)
 			tile.color = color
 			tile.modulate = tileColors[color]
-			if color == chosenColorRound:
-				tile.kill = true
-
 
 func _on_timer_timeout() -> void:
-	pass  # Replace with function body.
+	if GlobalColor.chosen_color == GlobalColor.current_color:
+		print("você venceu!!")
+	else:
+		print("você perdeu!")
