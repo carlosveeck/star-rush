@@ -1,0 +1,7 @@
+res://node_2d.tscn
+res://tile.tscn
+res://chosen_color.tscn
+res://Player/player.tscn
+res://main.gd
+res://tile.gd
+res://global_color.gd
