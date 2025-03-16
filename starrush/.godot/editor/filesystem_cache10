@@ -1,0 +1,35 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1742148924
+chosen_color.gd::GDScript/GDScript::3079801534819628349::1740438777::0::1::::ChosenColor<>Sprite2D<><>0<>0<><>::
+chosen_color.tscn::PackedScene/PackedScene::2706379438225886741::1742148256::0::1::::<><><>0<>0<><>::uid://x7m87f5ycqo::::res://Tilemaps/Sprites/New Piskel (2).png<>uid://bj44472fofxdt::::res://chosen_color.gd
+game_over.gd::GDScript/GDScript::6491866255368256506::1742144877::0::1::::<>Control<><>0<>0<><>::
+game_over.tscn::PackedScene/PackedScene::335065761075470350::1742148256::0::1::::<><><>0<>0<><>::uid://cmmeg0xgg1pmh::::res://GameOver/Assets/game_over.png<>uid://cyqydaulaiqa1::::res://game_over.gd
+global_color.gd::GDScript/GDScript::7272909500341921183::1742148140::0::1::::<>Node<><>0<>0<><>::
+global_level.gd::GDScript/GDScript::4832625381043384334::1742148140::0::1::::<>Node<><>0<>0<><>::
+icon.svg::CompressedTexture2D/CompressedTexture2D::3986134554285325618::1740438777::1742142383::1::::<><><>0<>0<>7d6e8e160a2461483ff3ce54cabb5ba5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+main.gd::GDScript/GDScript::5118017019217664479::1742148254::0::1::::<>Node2D<><>0<>0<><>::
+node_2d.tscn::PackedScene/PackedScene::1093263516071758793::1742148256::0::1::::<><><>0<>0<><>::uid://orlef60vd3v::::res://Player/player.tscn<>uid://ce6g80nm2m1qh::::res://main.gd<>uid://c16wj6duumgtj::::res://tile.tscn<>uid://bes8w6ctcyxhl::::res://chosen_color.tscn
+tile.gd::GDScript/GDScript::803840838235623408::1742148209::0::1::::Tile<>Sprite2D<><>0<>0<><>::
+tile.tscn::PackedScene/PackedScene::6663100492131085575::1742148256::0::1::::<><><>0<>0<><>::uid://x7m87f5ycqo::::res://Tilemaps/Sprites/New Piskel (2).png<>uid://lpne2gjmobim::::res://tile.gd
+tile_check.gd::GDScript/GDScript::1993392871016828945::1740438777::0::1::::<>Area2D<><>0<>0<><>::
+::res://Collectible/::1742148924
+::res://Collectible/Sprite/::1742148924
+coin.png::CompressedTexture2D::1833154252735679823::1742148922::1742148925::1::::<><><>0<>0<>8a6bc1ec62a9c775c1bcac0b6895b48b<>res://.godot/imported/coin.png-44c44632cc17ccf561738f682b970381.ctex::
+::res://GameOver/::1742144078
+::res://GameOver/Assets/::1742144169
+game_over-Photoroom-Photoroom.png::CompressedTexture2D/CompressedTexture2D::4612228437067361886::1742144088::1742144061::1::::<><><>0<>0<>5068fc6a543465d22701c48213256f1c<>res://.godot/imported/game_over-Photoroom-Photoroom.png-17e86263735b6d22d91d8614a881e2de.ctex::
+game_over.png::CompressedTexture2D/CompressedTexture2D::5640134955721728651::1742144168::1742144169::1::::<><><>0<>0<>f89ba5ce322c625f94084ce939f08c3b<>res://.godot/imported/game_over.png-9c7fecbdccdb309219a7ec60dd5adba3.ctex::
+::res://Player/::1742148256
+player.tscn::PackedScene/PackedScene::29953340426979633::1742148256::0::1::::<><><>0<>0<><>::uid://bm1x4uoc33if4::::res://Player/Scripts/player.gd<>uid://chh7soe6i16ly::::res://Player/Sprites/ExamplePlayerSprite.png<>uid://dhi0m3w5au1cj::::res://Player/Scripts/player_state_machine.gd<>uid://dqtqy8ar05v76::::res://Player/Scripts/state_idle.gd<>uid://c7ej61ufmpm3b::::res://Player/Scripts/state_walk.gd
+::res://Player/Scripts/::1742142383
+player.gd::GDScript/GDScript::3283809980035577415::1740438777::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player_state_machine.gd::GDScript/GDScript::7668639838927408533::1740438777::0::1::::PlayerStateMachine<>Node<><>0<>0<><>::
+state.gd::GDScript/GDScript::202657141686975417::1740438777::0::1::::State<>Node<><>0<>0<><>::
+state_idle.gd::GDScript/GDScript::8322522791630507859::1740438777::0::1::::State_Idle<>State<><>0<>0<><>::
+state_walk.gd::GDScript/GDScript::7027745084112437057::1740438777::0::1::::State_Walk<>State<><>0<>0<><>::
+::res://Player/Sprites/::1742142383
+Char_001.png::CompressedTexture2D/CompressedTexture2D::2282273331836162934::1740438777::1742142383::1::::<><><>0<>0<>4e83fbb3179db8e062b35960822f6435<>res://.godot/imported/Char_001.png-7ba3d6c597b7c1d8729bd2a7d0706b3f.ctex::
+ExamplePlayerSprite.png::CompressedTexture2D/CompressedTexture2D::5280589748116028858::1740438777::1742142383::1::::<><><>0<>0<>9b3c678239c46a937a9fd61e56d21e65<>res://.godot/imported/ExamplePlayerSprite.png-1a0713d9e212d397b05cebe8c8b9b26c.ctex::
+::res://Tilemaps/::1740438777
+::res://Tilemaps/Sprites/::1742142383
+New Piskel (2).png::CompressedTexture2D/CompressedTexture2D::49446844611269878::1740438777::1742142383::1::::<><><>0<>0<>91aecf6839997cac92570b50bd808002<>res://.godot/imported/New Piskel (2).png-859220eb16c270df19ce1482b8840040.ctex::

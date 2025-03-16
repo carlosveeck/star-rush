@@ -5,6 +5,7 @@ class_name Tile
 var color:int
 var tile_id : int
 var _player = null
+var is_bomb : bool
 
 @onready var area2d : Area2D = $Area2D
 
@@ -21,7 +22,9 @@ func _ready():
 func _on_body_entered(body: Node):
 	_player = body
 	GlobalColor.current_color = color
-	print(GlobalColor.current_color)
+	if is_bomb:
+		get_tree().change_scene_to_file("res://game_over.tscn")
+	## print(GlobalColor.current_color)
 	## print("Corpo entrou na área: ", _player)
 	
 # Função chamada quando um corpo sai da Area2D

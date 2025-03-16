@@ -1,7 +1,13 @@
+res://Player/player.tscn
+res://chosen_color.tscn
 res://node_2d.tscn
 res://tile.tscn
-res://chosen_color.tscn
-res://Player/player.tscn
+res://game_over.tscn
+res://game_over.gd
 res://main.gd
-res://tile.gd
 res://global_color.gd
+res://global_level.gd
+res://tile.gd
+res://coin.tscn
+res://coin.gd
+res://coin_manager.gd
