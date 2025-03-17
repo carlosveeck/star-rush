@@ -1,3 +1,14 @@
-Timer
 CollisionShape2D
+StaticBody2D
+AnimationPlayer
+Sprite2D
+Label
+TextureRect
+HBoxContainer
+MarginContainer
+Control
+CanvasLayer
 Area2D
+RichTextLabel
+VBoxContainer
+ColorRect
