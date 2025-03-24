@@ -10,6 +10,7 @@ extends Node2D
 @onready var board: Node2D = $board
 @onready var hud: Node2D = $HUD
 @onready var countdown_timer: Timer = $CountdownTimer
+@onready var chosen_color_timer: Timer = $chosen_color_timer
 
 # Tupla que define a tile que spawnará a moeda
 var coin_tile_position: Vector2
@@ -35,28 +36,20 @@ func setup_game() -> void:
 	for child in board.get_children():
 		child.queue_free()
 	
-	# Escolhe uma nova cor para o round
-	var chosenColor: ChosenColor = chosenPreFab.instantiate()
-	hud.add_child(chosenColor)
-	var chosenColorRound: int = randi_range(0, tileColors.size() - 1)
-	GlobalColor.chosen_color = chosenColorRound
-	chosenColor.color = chosenColorRound
-	chosenColor.modulate = tileColors[chosenColorRound]
-	
 	# Define uma tile aleatória para spawnar a moeda
 	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
 	# print("Moeda será spawnada na tile: ", coin_tile_position)
-	
+
 	# Define tiles bombas a partir do nível 4
-	bomb_tiles.clear()
-	if GlobalLevel.curr_level >= 3:
-		for x in range(3):  # Seleciona 3 tiles aleatórios como bombas
-			var bomb_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
-			while bomb_position == coin_tile_position or bomb_position in bomb_tiles:
-				bomb_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
-			bomb_tiles.append(bomb_position)
-		# print("Tiles bombas: ", bomb_tiles)
-	
+	#bomb_tiles.clear()
+	#if GlobalLevel.curr_level >= 0:
+	#	for x in range(3):  # Seleciona 3 tiles aleatórios como bombas
+	#		var bomb_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
+	#		while bomb_position == coin_tile_position or bomb_position in bomb_tiles:
+	#			bomb_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
+	#		bomb_tiles.append(bomb_position)
+	#	# print("Tiles bombas: ", bomb_tiles)
+
 	# Gera o tabuleiro
 	for i in boardSide:
 		for j in boardSide:
@@ -68,9 +61,9 @@ func setup_game() -> void:
 			tile.modulate = tileColors[color]
 			
 			# Marca a tile como bomba, se necessário
-			if Vector2(i, j) in bomb_tiles:
-				tile.is_bomb = true
-				tile.modulate = Color.RED  # Torna a tile vermelha
+			#if Vector2(i, j) in bomb_tiles:
+			#	tile.is_bomb = true
+			#	tile.modulate = Color.RED  # Torna a tile vermelha
 			
 			# Spawna a moeda na tile correta
 			if Vector2(i, j) == coin_tile_position:
@@ -89,10 +82,23 @@ func _on_timer_timeout() -> void:
 		print("Você venceu!!")
 		GlobalLevel.curr_level += 1
 		print_debug("Nível atual: ", GlobalLevel.curr_level)
-		setup_game()  # Reinicia o jogo
 		countdown_timer.start()  # Reinicia o timer
+		chosen_color_timer.start()
+		setup_game()  # Reinicia o jogo
+		
 	else:
 		GlobalLevel.total_coins = 0
 		GlobalLevel.curr_level = 0
 		get_tree().change_scene_to_file("res://game_over.tscn")
 		
+
+
+func _on_chosen_color_timer_timeout() -> void:
+		# Escolhe uma nova cor para o round
+	var chosenColor: ChosenColor = chosenPreFab.instantiate()
+	hud.add_child(chosenColor)
+	var chosenColorRound: int = randi_range(0, tileColors.size() - 1)
+	GlobalColor.chosen_color = chosenColorRound
+	chosenColor.color = chosenColorRound
+	chosenColor.modulate = tileColors[chosenColorRound]
+	chosen_color_timer.stop()
