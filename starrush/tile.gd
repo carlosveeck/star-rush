@@ -33,8 +33,5 @@ func _on_body_exited(body: Node):
 		_player = null
 	## print("Corpo saiu da área: ", _player)
 
-func _on_color_timer_timeout() -> void:
-	modulate = Color(1,1,1)
-
 func _on_end_timer_timeout() -> void:
 	modulate = GlobalColor.global_color_array[color]
