@@ -53,7 +53,7 @@ size = Vector2(10.667, 19.4696)
 size = Vector2(4.34304, 108.056)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d7sh"]
-size = Vector2(9.71352, 20.8603)
+size = Vector2(9.71352, 15.2975)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8iy"]
 size = Vector2(0.253267, 692.56)
@@ -70,6 +70,8 @@ coinPreFab = ExtResource("4_q6r6c")
 [node name="Player" parent="." instance=ExtResource("1_jm0qh")]
 scale = Vector2(0.75, 0.75)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="HUD" type="Node2D" parent="."]
 position = Vector2(447, 24)
 
@@ -79,10 +81,6 @@ one_shot = true
 autostart = true
 
 [node name="TimeRemaining" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -146,7 +144,7 @@ position = Vector2(142, 34)
 scale = Vector2(67.1229, 0.719071)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(1.32593, 283.699)
+position = Vector2(1.35572, 409.556)
 shape = SubResource("RectangleShape2D_4d7sh")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
@@ -154,7 +152,7 @@ position = Vector2(142, 34)
 scale = Vector2(67.1229, 0.719071)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(2.92002, 137.678)
+position = Vector2(4.35023, 140.459)
 shape = SubResource("RectangleShape2D_ir8iy")
 
 [node name="board" type="Node2D" parent="."]
@@ -164,6 +162,21 @@ position = Vector2(150, 50)
 wait_time = 4.0
 one_shot = true
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeRemaining" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(5, 5)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ColorTimer" to="." method="_on_color_timer_timeout"]

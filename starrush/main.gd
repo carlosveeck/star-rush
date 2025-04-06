@@ -5,7 +5,7 @@ extends Node2D
 @export var playerPreFab: PackedScene
 @export var chosenPreFab: PackedScene
 @export var coinPreFab: PackedScene  # Cena da moeda
-@export var boardSide: int = 8
+@export var boardSide: int = 12
 
 @onready var board: Node2D = $board
 @onready var hud: Node2D = $HUD
@@ -20,9 +20,9 @@ var bomb_tiles: Array[Vector2] = []
 var all_tiles: Array[Tile] = []
 
 func _process(delta: float) -> void:
-	$TimeRemaining.text = "%s" % roundf(countdown_timer.time_left)
+	$CanvasLayer/TimeRemaining.text = "%s" % roundf(countdown_timer.time_left)
 	
-
+	
 # Função chamada quando o nó entra na cena
 func _ready() -> void:
 	setup_game()
@@ -39,12 +39,12 @@ func setup_game() -> void:
 	
 	# Escolhe uma nova cor para o round
 	var chosenColor: ChosenColor = chosenPreFab.instantiate()
-	hud.add_child(chosenColor)
+	#hud.add_child(chosenColor)
 	var chosenColorRound: int = randi_range(0, tileColors.size() - 1)
 	GlobalColor.chosen_color = chosenColorRound
-	chosenColor.color = chosenColorRound
-	chosenColor.modulate = tileColors[chosenColorRound]
-	
+	#chosenColor.color = chosenColorRound
+	#chosenColor.modulate = tileColors[chosenColorRound]
+	$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
 	# Define uma tile aleatória para spawnar a moeda
 	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
 	# print("Moeda será spawnada na tile: ", coin_tile_position)
@@ -87,11 +87,12 @@ func resetup() -> void:
 	
 	# Escolhe uma nova cor para o round
 	var chosenColor: ChosenColor = chosenPreFab.instantiate()
-	hud.add_child(chosenColor)
+	#hud.add_child(chosenColor)
 	var chosenColorRound: int = randi_range(0, tileColors.size() - 1)
 	GlobalColor.chosen_color = chosenColorRound
-	chosenColor.color = chosenColorRound
-	chosenColor.modulate = tileColors[chosenColorRound]
+	$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
+	#chosenColor.color = chosenColorRound
+	#chosenColor.modulate = tileColors[chosenColorRound]
 	# Define uma tile aleatória para spawnar a moeda
 	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
 	# print("Moeda será spawnada na tile: ", coin_tile_position)
