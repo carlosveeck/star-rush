@@ -96,9 +96,11 @@ func resetup() -> void:
 	# Define uma tile aleatória para spawnar a moeda
 	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
 	# print("Moeda será spawnada na tile: ", coin_tile_position)
-	var numbom = randi_range(0, all_tiles.size())
-	var numbom2 = randi_range(0, all_tiles.size())
-	var numbom3 = randi_range(0, all_tiles.size())
+	var bombas = []
+	var quant = 3 + (GlobalLevel.curr_level/4)
+	for i in range(0, quant):
+		var numbom = randi_range(0, all_tiles.size())
+		bombas.append(numbom)
 	var numoeda = randi_range(0, all_tiles.size())
 	var curr = 0
 	# Gera o tabuleiro
@@ -106,7 +108,7 @@ func resetup() -> void:
 		var color: int = randi_range(0, tileColors.size() - 1)
 		i.color = color
 		i.modulate = Color.WHITE
-		if((curr == numbom) or (curr == numbom2) or (curr == numbom3)):
+		if(curr in bombas):
 			if(i._player == null):
 				i.is_bomb = true
 				i.modulate = Color.RED
