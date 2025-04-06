@@ -22,6 +22,7 @@ func _ready():
 func _on_body_entered(body: Node):
 	_player = body
 	GlobalColor.current_color = color
+	self.modulate = GlobalColor.global_color_array[color]
 	if is_bomb:
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	## print(GlobalColor.current_color)
@@ -30,8 +31,6 @@ func _on_body_entered(body: Node):
 # Função chamada quando um corpo sai da Area2D
 func _on_body_exited(body: Node):
 	if body == _player:
+		#self.modulate = Color.WHITE
 		_player = null
-	## print("Corpo saiu da área: ", _player)
-
-func _on_end_timer_timeout() -> void:
-	modulate = GlobalColor.global_color_array[color]
+	print("Corpo saiu da área: ", _player)

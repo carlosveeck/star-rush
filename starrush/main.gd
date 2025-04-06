@@ -68,7 +68,7 @@ func setup_game() -> void:
 			tile.position = Vector2(i, j) * tile.get_rect().size * tile.scale
 			var color: int = randi_range(0, tileColors.size() - 1)
 			tile.color = color
-			tile.modulate = tileColors[color]
+			tile.modulate = Color.WHITE
 			tile.is_bomb = false
 			
 	
@@ -105,7 +105,7 @@ func resetup() -> void:
 	for i in all_tiles:
 		var color: int = randi_range(0, tileColors.size() - 1)
 		i.color = color
-		i.modulate = tileColors[color]
+		i.modulate = Color.WHITE
 		if((curr == numbom) or (curr == numbom2) or (curr == numbom3)):
 			if(i._player == null):
 				i.is_bomb = true
@@ -142,4 +142,5 @@ func _on_timer_timeout() -> void:
 
 func _on_color_timer_timeout() -> void:
 	for i in all_tiles:
-		i.modulate = Color.WHITE
+		if(i.is_bomb == true):
+			i.modulate = Color.WHITE
