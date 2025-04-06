@@ -44,7 +44,7 @@ func setup_game() -> void:
 	GlobalColor.chosen_color = chosenColorRound
 	#chosenColor.color = chosenColorRound
 	#chosenColor.modulate = tileColors[chosenColorRound]
-	$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
+	#$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
 	# Define uma tile aleatória para spawnar a moeda
 	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
 	# print("Moeda será spawnada na tile: ", coin_tile_position)
@@ -90,7 +90,7 @@ func resetup() -> void:
 	#hud.add_child(chosenColor)
 	var chosenColorRound: int = randi_range(0, tileColors.size() - 1)
 	GlobalColor.chosen_color = chosenColorRound
-	$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
+	#$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
 	#chosenColor.color = chosenColorRound
 	#chosenColor.modulate = tileColors[chosenColorRound]
 	# Define uma tile aleatória para spawnar a moeda
@@ -133,8 +133,10 @@ func _on_timer_timeout() -> void:
 		GlobalLevel.curr_level += 1
 		print_debug("Nível atual: ", GlobalLevel.curr_level)
 		resetup()  # Reinicia o jogo
+		$CanvasLayer/ColorRect.color = Color.WHITE
 		countdown_timer.start()  # Reinicia o timer
 		color_timer.start()
+		
 	else:
 		GlobalLevel.total_coins = 0
 		GlobalLevel.curr_level = 0
@@ -143,6 +145,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_color_timer_timeout() -> void:
+	$CanvasLayer/ColorRect.color = tileColors[GlobalColor.chosen_color]
 	for i in all_tiles:
-		if(i.is_bomb == true):
+		if(i._player == null):
 			i.modulate = Color.WHITE
