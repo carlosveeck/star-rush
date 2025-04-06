@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ptt5jjtnj7l2"]
+[gd_scene load_steps=16 format=3 uid="uid://ptt5jjtnj7l2"]
 
 [ext_resource type="PackedScene" uid="uid://orlef60vd3v" path="res://Player/player.tscn" id="1_jm0qh"]
 [ext_resource type="Script" path="res://main.gd" id="1_tef7v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://daejlbetahxvn" path="res://coin.tscn" id="4_q6r6c"]
 [ext_resource type="Script" path="res://coin_manager.gd" id="6_d21ai"]
 [ext_resource type="Texture2D" uid="uid://1d81u23yvw5t" path="res://Collectible/Sprite/coin.png" id="6_kdubu"]
+[ext_resource type="AudioStream" uid="uid://bxo6smtqfn6af" path="res://1-34. Battle! Team Plasma.mp3" id="8_effvs"]
 
 [sub_resource type="Animation" id="Animation_rj586"]
 length = 0.001
@@ -179,6 +180,11 @@ offset_top = 8.0
 offset_right = -17.0
 offset_bottom = 48.0
 grow_horizontal = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_effvs")
+autoplay = true
+parameters/looping = false
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ColorTimer" to="." method="_on_color_timer_timeout"]

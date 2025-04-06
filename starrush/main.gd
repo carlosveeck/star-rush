@@ -97,7 +97,8 @@ func resetup() -> void:
 	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
 	# print("Moeda será spawnada na tile: ", coin_tile_position)
 	var bombas = []
-	var quant = 3 + (GlobalLevel.curr_level/4)
+	var quant = 2 + (GlobalLevel.curr_level/5)
+	quant = min(11, quant)
 	for i in range(0, quant):
 		var numbom = randi_range(0, all_tiles.size())
 		bombas.append(numbom)
