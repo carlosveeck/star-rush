@@ -1,12 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://ptt5jjtnj7l2"]
+[gd_scene load_steps=16 format=3 uid="uid://ptt5jjtnj7l2"]
 
 [ext_resource type="PackedScene" uid="uid://orlef60vd3v" path="res://Player/player.tscn" id="1_jm0qh"]
-[ext_resource type="Script" uid="uid://ce6g80nm2m1qh" path="res://main.gd" id="1_tef7v"]
+[ext_resource type="Script" path="res://main.gd" id="1_tef7v"]
 [ext_resource type="PackedScene" uid="uid://c16wj6duumgtj" path="res://tile.tscn" id="2_eul40"]
 [ext_resource type="PackedScene" uid="uid://bes8w6ctcyxhl" path="res://chosen_color.tscn" id="3_76hlw"]
 [ext_resource type="PackedScene" uid="uid://daejlbetahxvn" path="res://coin.tscn" id="4_q6r6c"]
-[ext_resource type="Script" uid="uid://deecdmu5lix0l" path="res://coin_manager.gd" id="6_d21ai"]
+[ext_resource type="Script" path="res://coin_manager.gd" id="6_d21ai"]
 [ext_resource type="Texture2D" uid="uid://1d81u23yvw5t" path="res://Collectible/Sprite/coin.png" id="6_kdubu"]
+[ext_resource type="AudioStream" uid="uid://bxo6smtqfn6af" path="res://1-34. Battle! Team Plasma.mp3" id="8_effvs"]
+
+[sub_resource type="Animation" id="Animation_rj586"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_d21ai"]
 resource_name = "coin_spin"
@@ -25,25 +41,10 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_rj586"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4d7sh"]
 _data = {
-&"RESET": SubResource("Animation_rj586"),
-&"coin_spin": SubResource("Animation_d21ai")
+"RESET": SubResource("Animation_rj586"),
+"coin_spin": SubResource("Animation_d21ai")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
@@ -53,7 +54,7 @@ size = Vector2(10.667, 19.4696)
 size = Vector2(4.34304, 108.056)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d7sh"]
-size = Vector2(9.71352, 20.8603)
+size = Vector2(9.71352, 15.2975)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir8iy"]
 size = Vector2(0.253267, 692.56)
@@ -61,7 +62,7 @@ size = Vector2(0.253267, 692.56)
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_tef7v")
-tileColors = Array[Color]([Color(0.127934, 0.174892, 0.527099, 1), Color(0.360784, 0.313726, 0.611765, 1), Color(0.666667, 0, 0.533333, 0.933333), Color(0.717647, 0.760784, 0.776471, 1)])
+tileColors = Array[Color]([Color(0.127934, 0.174892, 0.527099, 1), Color(0.360784, 0.313726, 0.611765, 1), Color(0.666667, 0, 0.533333, 0.933333), Color(0.717647, 0.760784, 0.776471, 1), Color(0.2, 0.45098, 0.341176, 1), Color(0.258824, 0.74902, 0.866667, 1), Color(0.815686, 0.956863, 0.917647, 1)])
 tilePrefab = ExtResource("2_eul40")
 playerPreFab = ExtResource("2_eul40")
 chosenPreFab = ExtResource("3_76hlw")
@@ -70,19 +71,17 @@ coinPreFab = ExtResource("4_q6r6c")
 [node name="Player" parent="." instance=ExtResource("1_jm0qh")]
 scale = Vector2(0.75, 0.75)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="HUD" type="Node2D" parent="."]
 position = Vector2(447, 24)
 
 [node name="CountdownTimer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 7.0
 one_shot = true
 autostart = true
 
 [node name="TimeRemaining" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -121,7 +120,7 @@ hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HudCoins/control_coins/MarginContainer/coins_container/Sprite2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_4d7sh")
+"": SubResource("AnimationLibrary_4d7sh")
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -130,7 +129,6 @@ scale = Vector2(67.1229, 0.719071)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1.25144, 11.1255)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_d21ai")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -147,8 +145,7 @@ position = Vector2(142, 34)
 scale = Vector2(67.1229, 0.719071)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(1.32593, 283.699)
-scale = Vector2(1, 1)
+position = Vector2(1.35572, 409.556)
 shape = SubResource("RectangleShape2D_4d7sh")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
@@ -156,11 +153,38 @@ position = Vector2(142, 34)
 scale = Vector2(67.1229, 0.719071)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(2.92002, 137.678)
-scale = Vector2(1, 1)
+position = Vector2(4.35023, 140.459)
 shape = SubResource("RectangleShape2D_ir8iy")
 
 [node name="board" type="Node2D" parent="."]
 position = Vector2(150, 50)
 
+[node name="ColorTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeRemaining" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(5, 5)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = 8.0
+offset_right = -17.0
+offset_bottom = 48.0
+grow_horizontal = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_effvs")
+autoplay = true
+parameters/looping = true
+
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ColorTimer" to="." method="_on_color_timer_timeout"]

@@ -5,22 +5,24 @@ extends Node2D
 @export var playerPreFab: PackedScene
 @export var chosenPreFab: PackedScene
 @export var coinPreFab: PackedScene  # Cena da moeda
-@export var boardSide: int = 8
+@export var boardSide: int = 12
 
 @onready var board: Node2D = $board
 @onready var hud: Node2D = $HUD
 @onready var countdown_timer: Timer = $CountdownTimer
+@onready var color_timer: Timer = $ColorTimer
 
 # Tupla que define a tile que spawnará a moeda
 var coin_tile_position: Vector2
 
 # Lista de tiles que são bombas
 var bomb_tiles: Array[Vector2] = []
+var all_tiles: Array[Tile] = []
 
 func _process(delta: float) -> void:
-	$TimeRemaining.text = "%s" % roundf(countdown_timer.time_left)
+	$CanvasLayer/TimeRemaining.text = "%s" % roundf(countdown_timer.time_left)
 	
-
+	
 # Função chamada quando o nó entra na cena
 func _ready() -> void:
 	setup_game()
@@ -37,12 +39,12 @@ func setup_game() -> void:
 	
 	# Escolhe uma nova cor para o round
 	var chosenColor: ChosenColor = chosenPreFab.instantiate()
-	hud.add_child(chosenColor)
+	#hud.add_child(chosenColor)
 	var chosenColorRound: int = randi_range(0, tileColors.size() - 1)
 	GlobalColor.chosen_color = chosenColorRound
-	chosenColor.color = chosenColorRound
-	chosenColor.modulate = tileColors[chosenColorRound]
-	
+	#chosenColor.color = chosenColorRound
+	#chosenColor.modulate = tileColors[chosenColorRound]
+	#$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
 	# Define uma tile aleatória para spawnar a moeda
 	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
 	# print("Moeda será spawnada na tile: ", coin_tile_position)
@@ -62,19 +64,60 @@ func setup_game() -> void:
 		for j in boardSide:
 			var tile: Tile = tilePrefab.instantiate()
 			board.add_child(tile)
+			all_tiles.append(tile)
 			tile.position = Vector2(i, j) * tile.get_rect().size * tile.scale
 			var color: int = randi_range(0, tileColors.size() - 1)
 			tile.color = color
-			tile.modulate = tileColors[color]
+			tile.modulate = Color.WHITE
+			tile.is_bomb = false
 			
-			# Marca a tile como bomba, se necessário
-			if Vector2(i, j) in bomb_tiles:
-				tile.is_bomb = true
-				tile.modulate = Color.RED  # Torna a tile vermelha
+	
 			
 			# Spawna a moeda na tile correta
 			if Vector2(i, j) == coin_tile_position:
 				spawn_coin(tile.position)
+				
+func resetup() -> void:
+	GlobalColor.global_color_array = tileColors
+	
+	# Limpa o HUD e o tabuleiro antes de gerar um novo jogo
+	for child in hud.get_children():
+		child.queue_free()
+	
+	
+	# Escolhe uma nova cor para o round
+	var chosenColor: ChosenColor = chosenPreFab.instantiate()
+	#hud.add_child(chosenColor)
+	var chosenColorRound: int = randi_range(0, tileColors.size() - 1)
+	GlobalColor.chosen_color = chosenColorRound
+	#$CanvasLayer/ColorRect.color = tileColors[chosenColorRound]
+	#chosenColor.color = chosenColorRound
+	#chosenColor.modulate = tileColors[chosenColorRound]
+	# Define uma tile aleatória para spawnar a moeda
+	coin_tile_position = Vector2(randi_range(0, boardSide - 1), randi_range(0, boardSide - 1))
+	# print("Moeda será spawnada na tile: ", coin_tile_position)
+	var bombas = []
+	var quant = 2 + (GlobalLevel.curr_level/4)
+	for i in range(0, quant):
+		var numbom = randi_range(0, all_tiles.size())
+		bombas.append(numbom)
+	var numoeda = randi_range(0, all_tiles.size())
+	var curr = 0
+	# Gera o tabuleiro
+	for i in all_tiles:
+		var color: int = randi_range(0, tileColors.size() - 1)
+		i.color = color
+		i.modulate = Color.WHITE
+		if(curr in bombas):
+			if(i._player == null):
+				i.is_bomb = true
+				i.modulate = Color.RED
+		else:
+			i.is_bomb = false
+			if(curr == numoeda):
+				spawn_coin(i.position)
+		curr = curr + 1
+		
 
 # Spawna a moeda na posição da tile correta
 func spawn_coin(position: Vector2) -> void:
@@ -89,10 +132,20 @@ func _on_timer_timeout() -> void:
 		print("Você venceu!!")
 		GlobalLevel.curr_level += 1
 		print_debug("Nível atual: ", GlobalLevel.curr_level)
-		setup_game()  # Reinicia o jogo
+		resetup()  # Reinicia o jogo
+		$CanvasLayer/ColorRect.color = Color.WHITE
 		countdown_timer.start()  # Reinicia o timer
+		color_timer.start()
+		
 	else:
 		GlobalLevel.total_coins = 0
 		GlobalLevel.curr_level = 0
 		get_tree().change_scene_to_file("res://game_over.tscn")
 		
+
+
+func _on_color_timer_timeout() -> void:
+	$CanvasLayer/ColorRect.color = tileColors[GlobalColor.chosen_color]
+	for i in all_tiles:
+		if(i._player == null):
+			i.modulate = Color.WHITE
