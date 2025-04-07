@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://daejlbetahxvn"]
 
 [ext_resource type="Texture2D" uid="uid://1d81u23yvw5t" path="res://Collectible/Sprite/coin.png" id="1_0t63x"]
-[ext_resource type="Script" path="res://coin.gd" id="2_v7riw"]
+[ext_resource type="Script" uid="uid://xx1rc07fwi05" path="res://coin.gd" id="2_v7riw"]
 
 [sub_resource type="Animation" id="Animation_w14il"]
 length = 0.001
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4etq"]
 _data = {
-"RESET": SubResource("Animation_w14il"),
-"spin": SubResource("Animation_pdq0q")
+&"RESET": SubResource("Animation_w14il"),
+&"spin": SubResource("Animation_pdq0q")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0t63x"]
@@ -52,7 +52,7 @@ script = ExtResource("2_v7riw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h4etq")
+&"": SubResource("AnimationLibrary_h4etq")
 }
 autoplay = "spin"
 
