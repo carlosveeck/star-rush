@@ -184,7 +184,7 @@ grow_horizontal = 0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_effvs")
 autoplay = true
-parameters/looping = false
+parameters/looping = true
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ColorTimer" to="." method="_on_color_timer_timeout"]
