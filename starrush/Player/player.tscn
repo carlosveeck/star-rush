@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://orlef60vd3v"]
 
-[ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_pjyve"]
+[ext_resource type="Script" uid="uid://bm1x4uoc33if4" path="res://Player/Scripts/player.gd" id="1_pjyve"]
 [ext_resource type="Texture2D" uid="uid://chh7soe6i16ly" path="res://Player/Sprites/ExamplePlayerSprite.png" id="2_sxb0b"]
-[ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_0p0wr"]
-[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="4_r12w3"]
-[ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="5_hnuu8"]
+[ext_resource type="Script" uid="uid://dhi0m3w5au1cj" path="res://Player/Scripts/player_state_machine.gd" id="3_0p0wr"]
+[ext_resource type="Script" uid="uid://dqtqy8ar05v76" path="res://Player/Scripts/state_idle.gd" id="4_r12w3"]
+[ext_resource type="Script" uid="uid://c7ej61ufmpm3b" path="res://Player/Scripts/state_walk.gd" id="5_hnuu8"]
 
 [sub_resource type="Animation" id="Animation_1e3nv"]
 length = 0.001
@@ -125,13 +125,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ak7m6"]
 _data = {
-"RESET": SubResource("Animation_1e3nv"),
-"idle_down": SubResource("Animation_12k7h"),
-"idle_side": SubResource("Animation_yls4i"),
-"idle_up": SubResource("Animation_q2vf3"),
-"walk_down": SubResource("Animation_qmrll"),
-"walk_side": SubResource("Animation_aola0"),
-"walk_up": SubResource("Animation_opxgo")
+&"RESET": SubResource("Animation_1e3nv"),
+&"idle_down": SubResource("Animation_12k7h"),
+&"idle_side": SubResource("Animation_yls4i"),
+&"idle_up": SubResource("Animation_q2vf3"),
+&"walk_down": SubResource("Animation_qmrll"),
+&"walk_side": SubResource("Animation_aola0"),
+&"walk_up": SubResource("Animation_opxgo")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7ihk"]
@@ -148,7 +148,7 @@ hframes = 21
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ak7m6")
+&"": SubResource("AnimationLibrary_ak7m6")
 }
 
 [node name="StateMachine" type="Node" parent="."]

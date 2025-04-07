@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://e1kqpwj7alb7"]
 
 [ext_resource type="Texture2D" uid="uid://cmmeg0xgg1pmh" path="res://GameOver/Assets/game_over.png" id="1_y26ei"]
-[ext_resource type="Script" path="res://game_over.gd" id="1_yxx3c"]
+[ext_resource type="Script" uid="uid://cyqydaulaiqa1" path="res://game_over.gd" id="1_yxx3c"]
 
 [sub_resource type="Animation" id="Animation_yxx3c"]
 length = 0.001
@@ -59,8 +59,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ccer4"]
 _data = {
-"RESET": SubResource("Animation_yxx3c"),
-"fade_in": SubResource("Animation_y26ei")
+&"RESET": SubResource("Animation_yxx3c"),
+&"fade_in": SubResource("Animation_y26ei")
 }
 
 [node name="GameOver" type="Control"]
@@ -110,7 +110,7 @@ text = "Quit Game"
 
 [node name="EndAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ccer4")
+&"": SubResource("AnimationLibrary_ccer4")
 }
 autoplay = "fade_in"
 
