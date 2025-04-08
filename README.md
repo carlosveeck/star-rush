@@ -34,8 +34,7 @@ Acompanhado por Clari, uma estrela mágica que Luma deixou para ele, Sirius prec
 - 🧩 **Memória visual**: Explore e memorize as cores escondidas no tabuleiro.
 - 🎯 **Objetivo surpresa**: Uma cor-alvo é revelada, encontre-a com rapidez.
 - 💣 **Tiles-bomba**: Erros custam caro! Evite as armadilhas escondidas.
-- ⏰ **Corrida contra o tempo**: O tempo diminui a cada rodada.
-- 🌟 **Colete estrelas e moedas**: Ganhe mais pontos (e arrisque mais!).
+- 🌟 **Colete moedas**: Ganhe mais pontos (e arrisque mais!).
 
 ---
 
@@ -44,8 +43,6 @@ Acompanhado por Clari, uma estrela mágica que Luma deixou para ele, Sirius prec
 | Ação            | Tecla           |
 |-----------------|-----------------|
 | Mover           | Setas / WASD    |
-| Selecionar Tile | Espaço / Enter  |
-| Pausar/Menu     | ESC             |
 
 ---
 
@@ -56,7 +53,7 @@ Acompanhado por Clari, uma estrela mágica que Luma deixou para ele, Sirius prec
 3. **Aguarde a cor-alvo**: Memorize o caminho certo!
 4. **Escolha com Sabedoria**: Encontre o tile com a cor-alvo.
 5. **Evite as Bombas**: Um erro pode acabar com sua rodada!
-6. **Colete Recompensas**: Pegue moedas e estrelas para aumentar sua pontuação.
+6. **Colete Recompensas**: Pegue moedas para aumentar sua pontuação.
 
 ![Star Rush 2](https://github.com/user-attachments/assets/18b33015-45be-4794-823e-730355a62a6f)
 
